@@ -44,14 +44,16 @@ export const AppWelcomeScreen: React.FC<{
       <WelcomeScreen.Hints.ToolbarHint />
       <WelcomeScreen.Hints.HelpHint />
       <WelcomeScreen.Center>
-        <WelcomeScreen.Center.Logo />
+      	{/* edit below for homepage logo and text 
+        <WelcomeScreen.Center.Logo /> */}
+        <div style={{ fontSize: "4rem", marginBottom: 20 }}>💞</div>
         <WelcomeScreen.Center.Heading>
           {headingContent}
         </WelcomeScreen.Center.Heading>
         <WelcomeScreen.Center.Menu>
           <WelcomeScreen.Center.MenuItemLoadScene />
           <WelcomeScreen.Center.MenuItemHelp />
-          {props.isCollabEnabled && (
+	{/*    {props.isCollabEnabled && (
             <WelcomeScreen.Center.MenuItemLiveCollaborationTrigger
               onSelect={() => props.onCollabDialogOpen()}
             />
@@ -67,6 +69,7 @@ export const AppWelcomeScreen: React.FC<{
               Sign up
             </WelcomeScreen.Center.MenuItemLink>
           )}
+    */}   
         </WelcomeScreen.Center.Menu>
       </WelcomeScreen.Center>
     </WelcomeScreen>
