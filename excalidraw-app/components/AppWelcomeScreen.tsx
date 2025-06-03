@@ -53,6 +53,12 @@ export const AppWelcomeScreen: React.FC<{
         <WelcomeScreen.Center.Menu>
           <WelcomeScreen.Center.MenuItemLoadScene />
           <WelcomeScreen.Center.MenuItemHelp />
+          {/* edit below link for special help videos */}
+          <WelcomeScreen.Center.MenuItemLink 
+          href="drive-link" 
+          shortcut={null}>
+  			Special Help 😉
+			</WelcomeScreen.Center.MenuItemLink>
 	{/*    {props.isCollabEnabled && (
             <WelcomeScreen.Center.MenuItemLiveCollaborationTrigger
               onSelect={() => props.onCollabDialogOpen()}
