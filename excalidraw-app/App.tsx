@@ -139,6 +139,10 @@ import "./index.scss";
 
 import type { CollabAPI } from "./collab/Collab";
 
+import AudioPlayer from './audio';
+import SpotifyWidget from './SpotifyWidget';
+import NotebookLinesOverlay from './Notebook';
+
 polyfill();
 
 window.EXCALIDRAW_THROTTLE_RENDER = true;
@@ -341,6 +345,10 @@ const ExcalidrawWrapper = () => {
   const { editorTheme, appTheme, setAppTheme } = useHandleAppTheme();
 
   const [langCode, setLangCode] = useAppLangCode();
+  
+  const [showNotebookLines, setShowNotebookLines] = useState(false);
+  const toggleNotebookLines = () => setShowNotebookLines(prev => !prev);
+
 
   // initial state
   // ---------------------------------------------------------------------------
@@ -1142,6 +1150,27 @@ const ExcalidrawWrapper = () => {
             ref={debugCanvasRef}
           />
         )}
+    	<AudioPlayer />
+    	<SpotifyWidget />
+    	{showNotebookLines && <NotebookLinesOverlay />}
+    	<button
+        onClick={toggleNotebookLines}
+  		style={{
+    		position: 'fixed',
+    		top: 22,
+    		right: 455,
+    		zIndex: 1000,
+    		backgroundColor: showNotebookLines ? '#fcd5ce' : 'white',
+    		border: '1px solid #ffb4a2',
+    		borderRadius: '6px',
+    		padding: '6px 12px',
+    		cursor: 'pointer',
+    		boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+  		}}
+  		title={showNotebookLines ? "Hide lines" : "Show notebook lines"}
+		>
+        📓 Notebook
+      	</button>
       </Excalidraw>
     </div>
   );
